@@ -6,9 +6,11 @@ let _config = {
 	feature: "play",
 	game: {
 		players: 2,
-		log: true
 	},
 	features: {
+		play: {
+			log: true
+		},
 		distribution: {
 			iterations: 50000,
 			log: 1000,
@@ -19,9 +21,9 @@ let _config = {
 
 _config.feature = _config.feature.toUpperCase();
 
-if(_config.game.players < 2)
+if(_config.game.players < 2 || _config.game.players > 52)
 {
-	console.log("Config should allow at least two players.");
+	console.log("Config allows 2-52 players. "+ _config.game.players +" is invalid.");
 	process.exit();
 }
 
@@ -126,7 +128,7 @@ function ShuffledDeck()
 */
 function GameLog(message)
 {
-	if(_config.game.log)
+	if(_config.features.play.log && _config.feature == "PLAY")
 	{
 		console.log(message);
 	}
