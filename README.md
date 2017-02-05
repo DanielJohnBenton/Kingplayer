@@ -175,6 +175,6 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 ![2 players distribution](graphs/2playerdistribution.png)
 
-|:ant: lowest|:whale2: highest|:bar_chart: mean average (rounded)|
+|:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
 |---|---|---|
 |35|2620|223|
