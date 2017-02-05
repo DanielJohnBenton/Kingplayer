@@ -41,3 +41,316 @@ Its simplicity makes it a good first card game for children.
 One unsolved problem in mathematics is the question of whether or not an [infinite game](https://en.wikipedia.org/wiki/Beggar-my-neighbour#Relation_to_mathematics) can occur.
 
 # :diamonds: Playing a game
+
+A very short game between **2 players** might look like this:
+
+```
+[G] This game has 2 players.
+[G] Dealing...
+[P] Player 1 places Jack on the pile. 25 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 2 places Ace on the pile. 25 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 8 on the pile. 24 cards left.
+[T] Player 1 places 4 on the pile. 23 cards left.
+[T] Player 1 places 7 on the pile. 22 cards left.
+[T] Player 1 places 6 on the pile. 21 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 31 cards.
+[P] Player 2 places 4 on the pile. 30 cards left.
+[P] Player 1 places 2 on the pile. 20 cards left.
+[P] Player 2 places 6 on the pile. 29 cards left.
+[P] Player 1 places King on the pile. 19 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places Ace on the pile. 28 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places Queen on the pile. 18 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 4 on the pile. 27 cards left.
+[T] Player 2 places 8 on the pile. 26 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 26 cards.
+[P] Player 1 places 3 on the pile. 25 cards left.
+[P] Player 2 places Ace on the pile. 25 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 2 on the pile. 24 cards left.
+[T] Player 1 places Queen on the pile. 23 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places Queen on the pile. 24 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 1 places King on the pile. 22 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places 8 on the pile. 23 cards left.
+[T] Player 2 places 7 on the pile. 22 cards left.
+[T] Player 2 places Jack on the pile. 21 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places 9 on the pile. 21 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 31 cards.
+[P] Player 2 places 3 on the pile. 30 cards left.
+[P] Player 1 places Jack on the pile. 20 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 2 places 10 on the pile. 29 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 23 cards.
+[P] Player 1 places 3 on the pile. 22 cards left.
+[P] Player 2 places 3 on the pile. 28 cards left.
+[P] Player 1 places 10 on the pile. 21 cards left.
+[P] Player 2 places 9 on the pile. 27 cards left.
+[P] Player 1 places 7 on the pile. 20 cards left.
+[P] Player 2 places 5 on the pile. 26 cards left.
+[P] Player 1 places King on the pile. 19 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places 5 on the pile. 25 cards left.
+[T] Player 2 places Jack on the pile. 24 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places 6 on the pile. 18 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 34 cards.
+[P] Player 2 places 5 on the pile. 33 cards left.
+[P] Player 1 places Queen on the pile. 17 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 5 on the pile. 32 cards left.
+[T] Player 2 places 8 on the pile. 31 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 21 cards.
+[P] Player 1 places Ace on the pile. 20 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 2 places 4 on the pile. 30 cards left.
+[T] Player 2 places 10 on the pile. 29 cards left.
+[T] Player 2 places King on the pile. 28 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 9 on the pile. 19 cards left.
+[T] Player 1 places 2 on the pile. 18 cards left.
+[T] Player 1 places 7 on the pile. 17 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 35 cards.
+[P] Player 2 places 9 on the pile. 34 cards left.
+[P] Player 1 places 6 on the pile. 16 cards left.
+[P] Player 2 places 10 on the pile. 33 cards left.
+[P] Player 1 places 2 on the pile. 15 cards left.
+[P] Player 2 places 6 on the pile. 32 cards left.
+[P] Player 1 places 8 on the pile. 14 cards left.
+[P] Player 2 places 7 on the pile. 31 cards left.
+[P] Player 1 places 4 on the pile. 13 cards left.
+[P] Player 2 places 4 on the pile. 30 cards left.
+[P] Player 1 places Queen on the pile. 12 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 8 on the pile. 29 cards left.
+[T] Player 2 places Ace on the pile. 28 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places Ace on the pile. 11 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 2 places Jack on the pile. 27 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places King on the pile. 10 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places 9 on the pile. 26 cards left.
+[T] Player 2 places Jack on the pile. 25 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places 6 on the pile. 9 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 43 cards.
+[P] Player 2 places 7 on the pile. 42 cards left.
+[P] Player 1 places 2 on the pile. 8 cards left.
+[P] Player 2 places 8 on the pile. 41 cards left.
+[P] Player 1 places 4 on the pile. 7 cards left.
+[P] Player 2 places King on the pile. 40 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 10 on the pile. 6 cards left.
+[T] Player 1 places Jack on the pile. 5 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 2 places Queen on the pile. 39 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 1 places 3 on the pile. 4 cards left.
+[T] Player 1 places 8 on the pile. 3 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 49 cards.
+[P] Player 2 places Queen on the pile. 48 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 1 places 5 on the pile. 2 cards left.
+[T] Player 1 places Queen on the pile. 1 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 2 on the pile. 47 cards left.
+[T] Player 2 places Ace on the pile. 46 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 5 on the pile. 0 cards left.
+[L] Player 1 is out of the game!
+[G] Player 2 wins!
+82 cards were placed during the game.
+```
+
+![graphs/2playergame](2 players' card counts)
+
+A game between **5 players** might look like this:
+
+```
+[G] This game has 5 players.
+[G] Dealing...
+[P] Player 1 places 5 on the pile. 10 cards left.
+[P] Player 2 places 7 on the pile. 10 cards left.
+[P] Player 3 places 5 on the pile. 9 cards left.
+[P] Player 4 places 4 on the pile. 9 cards left.
+[P] Player 5 places Ace on the pile. 9 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places Queen on the pile. 9 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 9 on the pile. 9 cards left.
+[T] Player 2 places 10 on the pile. 8 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 17 cards.
+[P] Player 1 places 9 on the pile. 16 cards left.
+[P] Player 2 places 4 on the pile. 7 cards left.
+[P] Player 3 places 7 on the pile. 8 cards left.
+[P] Player 4 places Queen on the pile. 8 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 5 places 9 on the pile. 8 cards left.
+[T] Player 5 places Ace on the pile. 7 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 2 on the pile. 15 cards left.
+[T] Player 1 places Queen on the pile. 14 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 6 on the pile. 6 cards left.
+[T] Player 2 places Ace on the pile. 5 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 3 places 5 on the pile. 7 cards left.
+[T] Player 3 places 6 on the pile. 6 cards left.
+[T] Player 3 places 10 on the pile. 5 cards left.
+[T] Player 3 places 8 on the pile. 4 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 19 cards.
+[P] Player 2 places 2 on the pile. 18 cards left.
+[P] Player 3 places Jack on the pile. 3 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 4 places 6 on the pile. 7 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 6 cards.
+[P] Player 3 places 9 on the pile. 5 cards left.
+[P] Player 4 places 8 on the pile. 6 cards left.
+[P] Player 5 places 4 on the pile. 6 cards left.
+[P] Player 1 places 8 on the pile. 13 cards left.
+[P] Player 2 places 3 on the pile. 17 cards left.
+[P] Player 3 places King on the pile. 4 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 4 places 7 on the pile. 5 cards left.
+[T] Player 4 places 6 on the pile. 4 cards left.
+[T] Player 4 places Jack on the pile. 3 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 5 places Queen on the pile. 5 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 1 places 2 on the pile. 12 cards left.
+[T] Player 1 places King on the pile. 11 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places 4 on the pile. 16 cards left.
+[T] Player 2 places 3 on the pile. 15 cards left.
+[T] Player 2 places 2 on the pile. 14 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 26 cards.
+[P] Player 1 places 7 on the pile. 25 cards left.
+[P] Player 2 places 8 on the pile. 13 cards left.
+[P] Player 3 places 10 on the pile. 3 cards left.
+[P] Player 4 places King on the pile. 2 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 5 places King on the pile. 4 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 5 on the pile. 24 cards left.
+[T] Player 1 places 10 on the pile. 23 cards left.
+[T] Player 1 places 10 on the pile. 22 cards left.
+[T] Player 5 grabs the pile and adds it to the bottom of theirs. Now they have 12 cards.
+[P] Player 5 places 8 on the pile. 11 cards left.
+[P] Player 1 places 9 on the pile. 21 cards left.
+[P] Player 2 places 10 on the pile. 12 cards left.
+[P] Player 3 places 6 on the pile. 2 cards left.
+[P] Player 4 places 3 on the pile. 1 cards left.
+[P] Player 5 places Jack on the pile. 10 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places Queen on the pile. 20 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 6 on the pile. 11 cards left.
+[T] Player 2 places 5 on the pile. 10 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 29 cards.
+[P] Player 1 places Ace on the pile. 28 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 2 places Ace on the pile. 9 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 3 places Jack on the pile. 1 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 4 places 3 on the pile. 0 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 5 cards.
+[L] Player 4 is out of the game!
+[P] Player 5 places Ace on the pile. 9 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 4 on the pile. 27 cards left.
+[T] Player 1 places 5 on the pile. 26 cards left.
+[T] Player 1 places 7 on the pile. 25 cards left.
+[T] Player 1 places 5 on the pile. 24 cards left.
+[T] Player 5 grabs the pile and adds it to the bottom of theirs. Now they have 14 cards.
+[P] Player 5 places Jack on the pile. 13 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places 2 on the pile. 23 cards left.
+[T] Player 5 grabs the pile and adds it to the bottom of theirs. Now they have 15 cards.
+[P] Player 5 places 10 on the pile. 14 cards left.
+[P] Player 1 places 3 on the pile. 22 cards left.
+[P] Player 2 places 6 on the pile. 8 cards left.
+[P] Player 3 places 2 on the pile. 4 cards left.
+[P] Player 5 places 10 on the pile. 13 cards left.
+[P] Player 1 places 4 on the pile. 21 cards left.
+[P] Player 2 places Queen on the pile. 7 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 3 places 3 on the pile. 3 cards left.
+[T] Player 3 places Jack on the pile. 2 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 5 places 5 on the pile. 12 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 12 cards.
+[P] Player 3 places Ace on the pile. 11 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 5 places King on the pile. 11 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places King on the pile. 20 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places 2 on the pile. 6 cards left.
+[T] Player 2 places Ace on the pile. 5 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 3 places Ace on the pile. 10 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 5 places King on the pile. 10 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 2 on the pile. 19 cards left.
+[T] Player 1 places Queen on the pile. 18 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places 9 on the pile. 4 cards left.
+[T] Player 2 places Queen on the pile. 3 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 3 places 5 on the pile. 9 cards left.
+[T] Player 3 places Jack on the pile. 8 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 5 places 10 on the pile. 9 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 22 cards.
+[P] Player 3 places 3 on the pile. 21 cards left.
+[P] Player 5 places 8 on the pile. 8 cards left.
+[P] Player 1 places Jack on the pile. 17 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 2 places 7 on the pile. 2 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 21 cards.
+[P] Player 1 places 6 on the pile. 20 cards left.
+[P] Player 2 places 4 on the pile. 1 cards left.
+[P] Player 3 places Queen on the pile. 20 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 5 places 7 on the pile. 7 cards left.
+[T] Player 5 places 5 on the pile. 6 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 25 cards.
+[P] Player 3 places 4 on the pile. 24 cards left.
+[P] Player 5 places 7 on the pile. 5 cards left.
+[P] Player 1 places 7 on the pile. 19 cards left.
+[P] Player 2 places 9 on the pile. 0 cards left.
+[L] Player 2 is out of the game!
+[P] Player 5 places 5 on the pile. 4 cards left.
+[P] Player 1 places King on the pile. 18 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 3 places 10 on the pile. 23 cards left.
+[T] Player 3 places 2 on the pile. 22 cards left.
+[T] Player 3 places 6 on the pile. 21 cards left.
+[T] Player 1 grabs the pile and adds it to the bottom of theirs. Now they have 27 cards.
+[P] Player 1 places 3 on the pile. 26 cards left.
+[P] Player 3 places 3 on the pile. 20 cards left.
+[P] Player 5 places 4 on the pile. 3 cards left.
+[P] Player 1 places 8 on the pile. 25 cards left.
+[P] Player 3 places 10 on the pile. 19 cards left.
+[P] Player 5 places Ace on the pile. 2 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 4 on the pile. 24 cards left.
+[T] Player 1 places 8 on the pile. 23 cards left.
+[T] Player 1 places 9 on the pile. 22 cards left.
+[T] Player 1 places 5 on the pile. 21 cards left.
+[T] Player 5 grabs the pile and adds it to the bottom of theirs. Now they have 12 cards.
+[P] Player 5 places 2 on the pile. 11 cards left.
+[P] Player 1 places 6 on the pile. 20 cards left.
+[P] Player 3 places 10 on the pile. 18 cards left.
+[P] Player 5 places Jack on the pile. 10 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 1 places Queen on the pile. 19 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 3 places Jack on the pile. 17 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 5 places 5 on the pile. 9 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 24 cards.
+[P] Player 3 places 5 on the pile. 23 cards left.
+[P] Player 5 places 9 on the pile. 8 cards left.
+[P] Player 1 places Jack on the pile. 18 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 3 places Queen on the pile. 22 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 5 places 8 on the pile. 7 cards left.
+[T] Player 5 places 4 on the pile. 6 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 28 cards.
+[P] Player 3 places 9 on the pile. 27 cards left.
+[P] Player 5 places Ace on the pile. 5 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 3 on the pile. 17 cards left.
+[T] Player 1 places 6 on the pile. 16 cards left.
+[T] Player 1 places 10 on the pile. 15 cards left.
+[T] Player 1 places 9 on the pile. 14 cards left.
+[T] Player 5 grabs the pile and adds it to the bottom of theirs. Now they have 11 cards.
+[P] Player 5 places 10 on the pile. 10 cards left.
+[P] Player 1 places 8 on the pile. 13 cards left.
+[P] Player 3 places Queen on the pile. 26 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 5 places 8 on the pile. 9 cards left.
+[T] Player 5 places 4 on the pile. 8 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 31 cards.
+[P] Player 3 places 2 on the pile. 30 cards left.
+[P] Player 5 places 3 on the pile. 7 cards left.
+[P] Player 1 places 7 on the pile. 12 cards left.
+[P] Player 3 places King on the pile. 29 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 5 places 3 on the pile. 6 cards left.
+[T] Player 5 places 9 on the pile. 5 cards left.
+[T] Player 5 places 10 on the pile. 4 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 36 cards.
+[P] Player 3 places Ace on the pile. 35 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 5 places 6 on the pile. 3 cards left.
+[T] Player 5 places 3 on the pile. 2 cards left.
+[T] Player 5 places Ace on the pile. 1 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places Jack on the pile. 11 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 3 places Ace on the pile. 34 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 5 places 9 on the pile. 0 cards left.
+[L] Player 5 is out of the game!
+[T] Player 1 places 8 on the pile. 10 cards left.
+[T] Player 1 places 3 on the pile. 9 cards left.
+[T] Player 1 places 6 on the pile. 8 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 44 cards.
+[P] Player 3 places 2 on the pile. 43 cards left.
+[P] Player 1 places 2 on the pile. 7 cards left.
+[P] Player 3 places King on the pile. 42 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 10 on the pile. 6 cards left.
+[T] Player 1 places King on the pile. 5 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 3 places King on the pile. 41 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 5 on the pile. 4 cards left.
+[T] Player 1 places 9 on the pile. 3 cards left.
+[T] Player 1 places 7 on the pile. 2 cards left.
+[T] Player 3 grabs the pile and adds it to the bottom of theirs. Now they have 50 cards.
+[P] Player 3 places Ace on the pile. 49 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 7 on the pile. 1 cards left.
+[T] Player 1 places 4 on the pile. 0 cards left.
+[L] Player 1 is out of the game!
+[G] Player 3 wins!
+173 cards were placed during the game.
+```
+
+![graphs/5playergame](5 players' card counts)
