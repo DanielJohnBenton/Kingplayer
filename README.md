@@ -162,3 +162,7 @@ A game between **5 players** might look like this (truncated):
 ```
 
 ![5 players' card counts](graphs/5playergame.png)
+
+If you are nuts you can even simulate a game with 52 players:
+
+![52 players' card counts](graphs/52playergame.png)
