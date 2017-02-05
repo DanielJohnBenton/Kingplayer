@@ -3,9 +3,9 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "play", // Can be "PLAY", "DISTRIBUTION"
+	feature: "distribution", // Can be "PLAY", "DISTRIBUTION"
 	game: {
-		players: 5, // Allows 2-52
+		players: 2, // Allows 2-52
 	},
 	features: {
 		play: {
@@ -13,8 +13,8 @@ let _config = {
 			plotFile: "gamePlot.txt" // Leave BLANK ("") for no file write
 		},
 		distribution: {
-			iterations: 50000,
-			log: 1000,
+			iterations: 1000000,
+			log: 100000,
 			output: "distribution.txt"
 		}
 	}
@@ -442,9 +442,13 @@ function Distribution()
 	
 	let counts = [];
 	
+	let total = 0;
+	
 	for(let i = 1; i <= _config.features.distribution.iterations; i++)
 	{
 		let nPlaces = PlayOneGame(ShuffledDeck());
+		
+		total += nPlaces;
 		
 		if(Defined(typeof(counts["_"+ nPlaces])))
 		{
@@ -490,6 +494,7 @@ function Distribution()
 	WriteFile(_config.features.distribution.output, file, "utf8");
 	
 	console.log("'"+ _config.features.distribution.output +"' generated.");
+	console.log("Mean average: "+ (total / _config.features.distribution.iterations));
 }
 
 if(_config.feature == "PLAY")
