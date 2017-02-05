@@ -34,7 +34,7 @@ Then, his opponent acquires all of the cards in the pile. When a
 single player has all of the cards in the deck in his stack, he has won.
 ```
 
-_Three for a King_ is deterministic. Once the deck is shuffled, the cards are dealt, and the first player is selected, the winner is decided and cannot be changed. There is no strategy or luck involved after the cards are dealt.
+_Three for a King_ is deterministic. Once the deck is shuffled, the cards are dealt, and the first player is selected, the winner is decided and cannot be changed. There is no strategy or luck involved after the cards are dealt. Instead, the winner is revealed to the players by following the simple rules detailed above until only one player is left holding any cards.
 
 Its simplicity makes it a good first card game for children.
 
