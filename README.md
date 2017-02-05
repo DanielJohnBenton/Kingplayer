@@ -175,5 +175,6 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 ![2 players distribution](graphs/2playerdistribution.png)
 
-||lowest||highest||mean average||
+|lowest|highest|mean average|
+|---|---|---|
 |35|2620|223.41|
