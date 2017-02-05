@@ -5,7 +5,7 @@ let _fs = require("fs");
 let _config = {
 	feature: "play", // Can be "PLAY", "DISTRIBUTION"
 	game: {
-		players: 2, // Allows 2-52
+		players: 5, // Allows 2-52
 	},
 	features: {
 		play: {
@@ -231,7 +231,7 @@ function PreviousPlayer(players, turn)
 */
 function GamePlot(plot, players, ids)
 {
-	if(_config.features.play.plotFile != "")
+	if(_config.feature == "PLAY" && _config.features.play.plotFile != "")
 	{
 		for(let iIds = 0, nIds = ids.length; iIds < nIds; iIds++)
 		{
@@ -254,6 +254,38 @@ function GamePlot(plot, players, ids)
 	}
 	
 	return plot;
+}
+
+function GamePlotToFile(plot, ids)
+{
+	if(_config.feature == "PLAY" && _config.features.play.plotFile != "")
+	{
+		let xLastId = ids.length - 1;
+		
+		let file = "";
+		
+		for(let iIds = 0; iIds <= xLastId; iIds++)
+		{
+			file += "Player "+ ids[iIds] + ((iIds != xLastId) ? "\t" : ""); 
+		}
+		
+		file +="\n";
+		
+		for(let iPlot = 0, xLastPlot = plot["_1"].length - 1; iPlot <= xLastPlot; iPlot++)
+		{
+			for(let iIds = 0; iIds <= xLastId; iIds++)
+			{
+				file += plot["_"+ ids[iIds]][iPlot] + ((iIds != xLastId) ? "\t" : ""); 
+			}
+			
+			if(iPlot != xLastPlot)
+			{
+				file +="\n";
+			}
+		}
+		
+		WriteFile(_config.features.play.plotFile, file);
+	}
 }
 
 /*
@@ -389,7 +421,7 @@ function PlayOneGame(deck)
 		}
 	}
 	
-	console.log(gamePlot);
+	GamePlotToFile(gamePlot, initialPlayerIds);
 	
 	return placeCount;
 }
