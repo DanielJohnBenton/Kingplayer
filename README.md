@@ -39,3 +39,5 @@ _Three for a King_ is deterministic. Once the deck is shuffled, the cards are de
 Its simplicity makes it a good first card game for children.
 
 One unsolved problem in mathematics is the question of whether or not an [infinite game](https://en.wikipedia.org/wiki/Beggar-my-neighbour#Relation_to_mathematics) can occur.
+
+# :diamonds: Playing a game
