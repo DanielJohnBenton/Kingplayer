@@ -309,8 +309,6 @@ function PlayOneGame(deck)
 		
 		GameLog(logLeader +" Player "+ players[playerTurn].id +" places "+ nextCard.type +" on the pile. "+ players[playerTurn].hand.length +" cards left."+ logEnder);
 		
-		gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
-		
 		if(nextCard.DemandsTaxes())
 		{
 			taxesDemanded = _taxation[nextCard.type];
@@ -345,8 +343,6 @@ function PlayOneGame(deck)
 				
 				GameLog("[T] Player "+ players[grabber].id +" grabs the pile and adds it to the bottom of theirs. Now they have "+ players[grabber].hand.length +" cards.");
 				
-				gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
-				
 				playerTurn = NextPlayer(players, playerTurn);
 			}
 			
@@ -379,6 +375,8 @@ function PlayOneGame(deck)
 			}				
 			playerTurn = NextPlayer(players, playerTurn);
 		}
+		
+		gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
 	}
 	
 	for(let i = 0, n = players.length; i < n; i++)
@@ -390,6 +388,8 @@ function PlayOneGame(deck)
 			break;
 		}
 	}
+	
+	console.log(gamePlot);
 	
 	return placeCount;
 }
