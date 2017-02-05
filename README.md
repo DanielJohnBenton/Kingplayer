@@ -7,7 +7,7 @@
 - Show distributions of game length using graphs
 - Find high and low length games using a genetic algorithm to evolve a starting deck
 
-# :hearts: The Game _Three for a King_
+# :hearts: About _Three for a King_
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Beggar-my-neighbour):
 
