@@ -187,7 +187,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 |---|---|---|
 |46|2912|284|
 
-## :beer: 4 players
+## :beers: 4 players
 
 ![4 players distribution](graphs/4playerdistribution.png)
 
