@@ -33,3 +33,6 @@ who, in playing his penalty, turns up neither an ace nor a face card.
 Then, his opponent acquires all of the cards in the pile. When a
 single player has all of the cards in the deck in his stack, he has won.
 ```
+
+_Three for a King_ is deterministic. Once the deck is shuffled, the cards are dealt, and the first player is selected, the winner is decided and cannot be changed. There is no strategy or luck involved after the cards are dealt. Its simplicity makes it a good first card game for children.
+
