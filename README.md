@@ -143,7 +143,7 @@ A very short game between **2 players** might look like this:
 82 cards were placed during the game.
 ```
 
-![graphs/2playergame](2 players' card counts)
+![2 players' card counts](graphs/2playergame)
 
 A game between **5 players** might look like this:
 
@@ -353,4 +353,4 @@ A game between **5 players** might look like this:
 173 cards were placed during the game.
 ```
 
-![graphs/5playergame](5 players' card counts)
+![5 players' card counts](graphs/5playergame)
