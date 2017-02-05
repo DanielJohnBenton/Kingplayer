@@ -171,7 +171,9 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 # :clubs: Plot distribution - highest and lowest in a MILLION games?
 
-## :beers: 2 players
+## Distribution graphs
+
+### :beers: 2 players
 
 ![2 players distribution](graphs/2playerdistribution.png)
 
@@ -179,7 +181,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 |---|---|---|
 |35|2620|223|
 
-## :beer: 3 players
+### :beer: 3 players
 
 ![3 players distribution](graphs/3playerdistribution.png)
 
@@ -187,7 +189,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 |---|---|---|
 |46|2912|284|
 
-## :beers: 4 players
+### :beers: 4 players
 
 ![4 players distribution](graphs/4playerdistribution.png)
 
