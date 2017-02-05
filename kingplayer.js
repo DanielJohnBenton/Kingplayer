@@ -5,7 +5,7 @@ let _fs = require("fs");
 let _config = {
 	feature: "play",
 	game: {
-		players: 53,
+		players: 2,
 		log: true
 	},
 	features: {
@@ -332,7 +332,8 @@ function PlayOneGame(deck)
 	{
 		if(players[i].hand.length > 0)
 		{
-			GameLog("[G] Player "+ players[i].id +" wins! Cards placed during the game: "+ placeCount);
+			GameLog("[G] Player "+ players[i].id +" wins!");
+			GameLog(placeCount +" cards were placed during the game.");
 			break;
 		}
 	}
