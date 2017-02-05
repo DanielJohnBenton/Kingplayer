@@ -1,4 +1,4 @@
-# :spades: :hearts: :clubs: :diamonds: Kingplayer
+# :spades: :hearts: :crown: :clubs: :diamonds: Kingplayer
 
 # :diamonds: Goals
 - Simulate 'Three for a King' with 2-52 multiple players
