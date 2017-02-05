@@ -223,6 +223,40 @@ function PreviousPlayer(players, turn)
 }
 
 /*
+	GamePlot (
+		ARRAY plot [STRING lookup] [INTEGER index] = INTEGER,
+		ARRAY players [INTEGER index] = OBJECT Player,
+		ARRAY ids [INTEGER index] = STRING
+	): ARRAY [STRING lookup] [INTEGER index] = INTEGER
+*/
+function GamePlot(plot, players, ids)
+{
+	if(_config.features.play.plotFile != "")
+	{
+		for(let iIds = 0, nIds = ids.length; iIds < nIds; iIds++)
+		{
+			let plotted = false;
+			
+			for(let iPlayers = 0, nPlayers = players.length; iPlayers < nPlayers; iPlayers++)
+			{
+				if(players[iPlayers].id == ids[iIds])
+				{
+					plot["_"+ ids[iIds]].push(players[iPlayers].hand.length);
+					plotted = true;
+				}
+			}
+			
+			if(!plotted)
+			{
+				plot["_"+ ids[iIds]].push(0);
+			}
+		}
+	}
+	
+	return plot;
+}
+
+/*
 	PlayOneGame (
 		ARRAY deck [INTEGER index] = OBJECT Card
 	): INTEGER
@@ -244,6 +278,18 @@ function PlayOneGame(deck)
 		dealToPlayer = NextPlayer(players, dealToPlayer);
 	}
 	
+	let gamePlot = [];
+	let initialPlayerIds = [];
+	
+	for(let i = 0, n = players.length; i < n; i++)
+	{
+		initialPlayerIds.push(players[i].id);
+		
+		gamePlot["_"+ players[i].id] = [];
+	}
+	
+	gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
+	
 	let playerTurn = 0;
 	
 	let taxesDemanded = 0;
@@ -262,6 +308,8 @@ function PlayOneGame(deck)
 		let logEnder = ((nextCard.DemandsTaxes()) ? " This demands a tax of "+ _taxation[nextCard.type] +" cards from the next player." : "");
 		
 		GameLog(logLeader +" Player "+ players[playerTurn].id +" places "+ nextCard.type +" on the pile. "+ players[playerTurn].hand.length +" cards left."+ logEnder);
+		
+		gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
 		
 		if(nextCard.DemandsTaxes())
 		{
@@ -296,6 +344,8 @@ function PlayOneGame(deck)
 				taxesDemanded = 0;
 				
 				GameLog("[T] Player "+ players[grabber].id +" grabs the pile and adds it to the bottom of theirs. Now they have "+ players[grabber].hand.length +" cards.");
+				
+				gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
 				
 				playerTurn = NextPlayer(players, playerTurn);
 			}
