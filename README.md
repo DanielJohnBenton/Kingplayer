@@ -178,3 +178,11 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 |:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
 |---|---|---|
 |35|2620|223|
+
+## :beer: 3 players
+
+![3 players distribution](graphs/3playerdistribution.png)
+
+|:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
+|---|---|---|
+|46|2912|284|
