@@ -40,7 +40,7 @@ Its simplicity makes it a good first card game for children.
 
 One unsolved problem in mathematics is the question of whether or not an [infinite game](https://en.wikipedia.org/wiki/Beggar-my-neighbour#Relation_to_mathematics) can occur.
 
-# :diamonds: Playing a game
+# :hearts: Playing a game
 
 A very short game between **2 players** might look like this:
 
@@ -166,3 +166,11 @@ A game between **5 players** might look like this (truncated):
 If you are nuts you can even simulate a game with 52 players:
 
 ![52 players' card counts](graphs/52playergame.png)
+
+It quickly became a 2-player game as resources (picture cards) were so scarce.
+
+# :clubs: Plot distribution - highest and lowest in a MILLION games?
+
+## :beers: 2 players
+
+![2 players distribution](graphs/2playerdistribution.png)
