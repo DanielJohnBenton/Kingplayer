@@ -5,7 +5,7 @@ let _fs = require("fs");
 let _config = {
 	feature: "distribution", // Can be "PLAY", "DISTRIBUTION"
 	game: {
-		players: 2, // Allows 2-52
+		players: 5, // Allows 2-52
 	},
 	features: {
 		play: {
@@ -503,7 +503,7 @@ if(_config.feature == "PLAY")
 }
 else if(_config.feature == "DISTRIBUTION")
 {
-	Distribution();
+	//Distribution();
 }
 else
 {
@@ -511,7 +511,15 @@ else
 }
 
 
-
+for(let i = 5; i <= 52; i++)
+{
+	console.log("===");
+	console.log(i);
+	_config.game.players = i;
+	_config.features.distribution.output = "distribution_"+ i +".txt";
+	
+	Distribution();
+}
 
 
 
