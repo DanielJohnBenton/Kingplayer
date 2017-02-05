@@ -256,6 +256,12 @@ function GamePlot(plot, players, ids)
 	return plot;
 }
 
+/*
+	GamePlotToFile (
+		ARRAY plot [STRING lookup] [INTEGER index] = INTEGER,
+		ARRAY ids [INTEGER index] = STRING
+	): VOID
+*/
 function GamePlotToFile(plot, ids)
 {
 	if(_config.feature == "PLAY" && _config.features.play.plotFile != "")
