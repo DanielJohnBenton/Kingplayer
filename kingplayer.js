@@ -3,13 +3,14 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "play",
+	feature: "play", // Can be "PLAY", "DISTRIBUTION"
 	game: {
-		players: 2,
+		players: 2, // Allows 2-52
 	},
 	features: {
 		play: {
-			log: true
+			log: true, // TRUE to log each game event to the console
+			plotFile: "gamePlot.txt" // Leave BLANK ("") for no file write
 		},
 		distribution: {
 			iterations: 50000,
