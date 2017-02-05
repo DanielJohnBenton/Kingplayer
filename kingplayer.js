@@ -375,7 +375,7 @@ function PlayOneGame(deck)
 				
 				GameLog("[T] Player "+ players[grabber].id +" grabs the pile and adds it to the bottom of theirs. Now they have "+ players[grabber].hand.length +" cards.");
 				
-				playerTurn = NextPlayer(players, playerTurn);
+				playerTurn = grabber;
 			}
 			
 			let playerPurged = false;
