@@ -13,8 +13,8 @@ let _config = {
 			plotFile: "gamePlot.txt" // Leave BLANK ("") for no file write
 		},
 		distribution: {
-			iterations: 1000000,
-			log: 100000,
+			iterations: 100,
+			log: 10,
 			output: "distribution.txt"
 		}
 	}
@@ -503,22 +503,11 @@ if(_config.feature == "PLAY")
 }
 else if(_config.feature == "DISTRIBUTION")
 {
-	//Distribution();
+	Distribution();
 }
 else
 {
 	console.log("Please configure a feature.");
-}
-
-
-for(let i = 5; i <= 52; i++)
-{
-	console.log("===");
-	console.log(i);
-	_config.game.players = i;
-	_config.features.distribution.output = "distribution_"+ i +".txt";
-	
-	Distribution();
 }
 
 
