@@ -169,7 +169,7 @@ If you are nuts you can even simulate a game with 52 players:
 
 It quickly became a 2-player game as resources (picture cards) were so scarce.
 
-# :clubs: Plot distribution - highest and lowest in a MILLION games?
+# :clubs: Plot distribution - longest and shortest in a MILLION games?
 
 ## Distribution graphs
 
@@ -177,7 +177,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 ![2 players distribution](graphs/2playerdistribution.png)
 
-|:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
+|:ant: shortest|:whale: longest|:bar_chart: mean average (rounded)|
 |---|---|---|
 |35|2620|223|
 
@@ -185,7 +185,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 ![3 players distribution](graphs/3playerdistribution.png)
 
-|:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
+|:ant: shortest|:whale: longest|:bar_chart: mean average (rounded)|
 |---|---|---|
 |46|2912|284|
 
@@ -193,7 +193,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 ![4 players distribution](graphs/4playerdistribution.png)
 
-|:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
+|:ant: shortest|:whale: longest|:bar_chart: mean average (rounded)|
 |---|---|---|
 |47|2498|312|
 
