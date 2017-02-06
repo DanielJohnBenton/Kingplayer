@@ -196,3 +196,14 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 |:ant: lowest|:whale: highest|:bar_chart: mean average (rounded)|
 |---|---|---|
 |47|2498|312|
+
+## Shortest, longest and average game length per player count
+
+### :ant: Shortest
+![Shortest per player count](graphs/per_player_count_shortest.png)
+
+### :whale: Longest
+![Longest per player count](graphs/per_player_count_longest.png)
+
+### :bar_chart: Average
+![Average per player count](graphs/per_player_count_average.png)
