@@ -169,7 +169,7 @@ If you are nuts you can even simulate a game with 52 players:
 
 It quickly became a 2-player game as resources (picture cards) were so scarce.
 
-# :clubs: Plot distribution - longest and shortest in a MILLION games?
+# :clubs: Plot distribution - longest and shortest in 1million games?
 
 ## Distribution graphs
 
