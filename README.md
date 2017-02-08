@@ -208,7 +208,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 ### :bar_chart: Average
 ![Average per player count](graphs/per_player_count_average.png)
 
-# :hearts: Evolve a deck for longer and shorter games
+# :hearts: Evolve a deck for shorter and longer games
 
 ## Genetic algorithm
 Evolving a deck of cards with a genetic algorithm is quite awkward, as there are a couple constraints:
@@ -232,3 +232,16 @@ Settings used:
 |Population per generation|Elitism count|Selection count|Mutation rate|
 |---|---|---|---|
 |500|5|50|2%|
+
+## Evolving a long game
+In a million random games between 2 players, the longest game was **2620** ([see above](https://github.com/DanielJohnBenton/Kingplayer#beers-2-players)).
+
+Compared to evolving a short game, it was much harder for the genetic algorithm to evolve a long game - improvements were fewer and further between and in this case, a large random selection might be more effective for finding long games.
+
+However, with some luck and some trial and error tweaking the settings, the evolutionary algorithm was able to find a longer game of **3043** after 357,500 games.
+
+![Evolving a long game](graphs/evolve_long_game.png)
+
+|Population per generation|Elitism count|Selection count|Mutation rate|
+|---|---|---|---|
+|2500|100|1000|5%|
