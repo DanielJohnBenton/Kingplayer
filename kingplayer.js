@@ -437,6 +437,11 @@ function PlayOneGame(initialDeck)
 			
 			if(playerPurged)
 			{
+				if(_config.game.players == 2)
+				{
+					break;
+				}
+				
 				playerTurn = NextPlayer(players, playerTurn);
 			}
 		}
@@ -447,7 +452,8 @@ function PlayOneGame(initialDeck)
 				GameLog("[L] Player "+ players[playerTurn].id +" is out of the game!");
 			
 				players.splice(playerTurn, 1);
-			}				
+			}
+			
 			playerTurn = NextPlayer(players, playerTurn);
 		}
 		
