@@ -208,7 +208,7 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 ### :bar_chart: Average
 ![Average per player count](graphs/per_player_count_average.png)
 
-# :hearts: Genetic algorithm - evolve a deck for longer and shorter games
+# :hearts: Evolve a deck for longer and shorter games
 
 ## Evolving the deck
 Evolving a deck of cards with a genetic algorithm is quite awkward, as there are a couple constraints:
@@ -222,6 +222,7 @@ I also used elitism and only a simple form of selection (best solutions when ord
 
 ## Evolving a short game
 In a million random games between 2 players, the shortest game was **35**.
+
 The genetic algorithm found games with a length of **33** within only 17,500 games!
 
 ![Evolving a short game](graphs/evolve_short_game.png)
