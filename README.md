@@ -207,3 +207,26 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 
 ### :bar_chart: Average
 ![Average per player count](graphs/per_player_count_average.png)
+
+# :hearts: Genetic algorithm - evolve a deck for longer and shorter games
+
+## Evolving the deck
+Evolving a deck of cards with a genetic algorithm is quite awkward, as there are a couple constraints:
+
+- All cards must be present in the deck
+- All cards can only appear once in the deck
+
+For this reason, I only use mutation and not cross-over breeding of solutions.
+In my algorithm, there was a mutation rate, and whenever a card was chosen for mutation its location would be swapped with the location of another randomly selected card.
+I also used elitism and only a simple form of selection (best solutions when ordered by fitness).
+
+## Evolving a short game
+In a million random games between 2 players, the shortest game was **35**.
+The genetic algorithm found games with a length of **33** within only 17,500 games!
+
+![Evolving a short game](graphs/evolve_short_game.png)
+
+Settings used:
+|Population per generation|Elitism count|Selection count|Mutation rate|
+|---|---|---|---|
+|500|5|50|2%|
