@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "genetic", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "play", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
 		players: 2, // Allows 2-52
 	},
@@ -11,7 +11,7 @@ let _config = {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			load: "evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "longest_evolved_game.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,

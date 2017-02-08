@@ -286,9 +286,15 @@ Pre-sorted deck loaded from 'shortest_evolved_deck.txt'.
 In a million random games between 2 players, the longest game was **2620** ([see above](https://github.com/DanielJohnBenton/Kingplayer#beers-2-players)).
 
 Compared to evolving a short game, it was much harder for the genetic algorithm to evolve a long game - improvements were fewer and further between and in this case, a large random selection might be more effective for finding long games.
+
+With some luck and trial and error, I was able to find a game of length **3110**. Not a [world record](http://www.richardpmann.com/beggar-my-neighbour-records.html) beater!
+
+![Evolving a short game](graphs/evolve_long_game.png)
  
 Settings used:
 
 |Population per generation|Elitism count|Selection count|Mutation rate|
 |---|---|---|---|
 |2500|100|1000|5%|
+
+Since it would be unreasonable to paste the entire thing here, I have attached a full transcript of the game - [link](output/longest_evolved_game_transcript.txt).
