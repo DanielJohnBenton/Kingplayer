@@ -301,4 +301,4 @@ Since it would be unreasonable to paste the entire thing here, I have attached a
 
 Plotting the player hands, you can see that there were some near misses where a player held 0 cards but were saved by the debt owed by their last played picture card.
 
-![Long game hands plot](evolved_long_game_hands.png)
+![Long game hands plot](graphs/evolved_long_game_hands.png)
