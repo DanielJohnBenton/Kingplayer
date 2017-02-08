@@ -221,7 +221,7 @@ In my algorithm, there was a mutation rate, and whenever a card was chosen for m
 I also used elitism and only a simple form of selection (best solutions when ordered by fitness).
 
 ## Evolving a short game
-In a million random games between 2 players, the shortest game was **35**.
+In a million random games between 2 players, the shortest game was **35** ([see above](https://github.com/DanielJohnBenton/Kingplayer#beers-2-players)).
 
 The genetic algorithm found games with a length of **33** within only 17,500 games!
 
