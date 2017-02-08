@@ -238,7 +238,7 @@ In a million random games between 2 players, the longest game was **2620** ([see
 
 Compared to evolving a short game, it was much harder for the genetic algorithm to evolve a long game - improvements were fewer and further between and in this case, a large random selection might be more effective for finding long games.
 
-However, with some luck and some trial and error tweaking the settings, the evolutionary algorithm was able to find a longer game of **3043** after 357,500 games.
+However, with some luck and some trial and error tweaking the settings, the evolutionary algorithm was able to find a longer game of **3055** after 357,500 games.
 
 ![Evolving a long game](graphs/evolve_long_game.png)
 
