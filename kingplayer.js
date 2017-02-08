@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "PLAY", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "play", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
 		players: 2, // Allows 2-52
 	},
@@ -11,7 +11,7 @@ let _config = {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			load: "evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "longest_evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
@@ -19,12 +19,12 @@ let _config = {
 			output: "distribution.txt"
 		},
 		genetic: {
-			goal: "SHORTEST", // "SHORTEST", "LONGEST"
+			goal: "LONGEST", // "SHORTEST", "LONGEST"
 			iterations: 200,
 			log: 1,
-			population: 500,
-			elitism: 5,
-			selection: 50,
+			population: 1000,
+			elitism: 10,
+			selection: 100,
 			mutationRatePercentage: 2,
 			output: "evolved_deck.txt"
 		}
@@ -366,7 +366,9 @@ function PlayOneGame(initialDeck)
 	
 	let placeCount = 0;
 	
-	while(MoreThanOnePlayerHasCards(players))
+	let mustContinue = false;
+	
+	while(mustContinue || MoreThanOnePlayerHasCards(players))
 	{
 		let nextCard = players[playerTurn].hand.shift();
 		
@@ -393,6 +395,8 @@ function PlayOneGame(initialDeck)
 				}
 			}
 			
+			mustContinue = true;
+			
 			playerTurn = NextPlayer(players, playerTurn);
 		}
 		else if(taxesDemanded > 0)
@@ -411,6 +415,8 @@ function PlayOneGame(initialDeck)
 				taxesDemanded = 0;
 				
 				GameLog("[T] Player "+ players[grabber].id +" grabs the pile and adds it to the bottom of theirs. Now they have "+ players[grabber].hand.length +" cards.");
+				
+				mustContinue = false;
 				
 				playerTurn = grabber;
 			}
