@@ -211,7 +211,6 @@ It quickly became a 2-player game as resources (picture cards) were so scarce.
 # :hearts: Evolve a deck for longer and shorter games
 
 ## Genetic algorithm
-## Genetic algorithm
 Evolving a deck of cards with a genetic algorithm is quite awkward, as there are a couple constraints:
 
 - All cards must be present in the deck
