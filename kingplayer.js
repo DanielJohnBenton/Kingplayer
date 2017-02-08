@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "play", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "genetic", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
 		players: 2, // Allows 2-52
 	},
@@ -19,7 +19,7 @@ let _config = {
 			output: "distribution.txt"
 		},
 		genetic: {
-			goal: "LONGEST", // "SHORTEST", "LONGEST"
+			goal: "longest", // "SHORTEST", "LONGEST"
 			iterations: 4000,
 			log: 1,
 			population: 2500,
@@ -27,16 +27,29 @@ let _config = {
 			selection: 1000,
 			mutationRatePercentage: 5,
 			output: "evolved_deck.txt"
+		},
+		random: {
+			goal: "longest", // "SHORTEST", "LONGEST"
+			directory: "random/",
+			log: 10000,
+			safetyFileLimit: 10000
 		}
 	}
 };
-
-_config.feature = _config.feature.toUpperCase();
 
 if(_config.game.players < 2 || _config.game.players > 52)
 {
 	console.log("Config allows 2-52 players. "+ _config.game.players +" is invalid.");
 	process.exit();
+}
+
+_config.feature = _config.feature.toUpperCase();
+
+_config.features.genetic.goal = _config.features.genetic.goal.toUpperCase();
+
+if(_config.features.random.directory.charAt(_config.features.random.directory - 1) != "/")
+{
+	_config.features.random.directory +="/";
 }
 
 let _taxation = {
