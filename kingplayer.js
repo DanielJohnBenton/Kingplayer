@@ -11,7 +11,7 @@ let _config = {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			load: "longest_evolved_game.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "shortest_evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
@@ -450,6 +450,7 @@ function PlayOneGame(initialDeck)
 			{
 				if(_config.game.players == 2)
 				{
+					gamePlot = GamePlot(gamePlot, players, initialPlayerIds);
 					break;
 				}
 				
