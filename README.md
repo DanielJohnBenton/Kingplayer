@@ -289,7 +289,7 @@ Compared to evolving a short game, it was much harder for the genetic algorithm 
 
 With some luck and trial and error, I was able to find a game of length **3110**. Not a [world record](http://www.richardpmann.com/beggar-my-neighbour-records.html) beater!
 
-![Evolving a short game](graphs/evolve_long_game.png)
+![Evolving a long game](graphs/evolve_long_game.png)
  
 Settings used:
 
@@ -298,3 +298,7 @@ Settings used:
 |2500|100|1000|5%|
 
 Since it would be unreasonable to paste the entire thing here, I have attached a full transcript of the game - [link](output/longest_evolved_game_transcript.txt).
+
+Plotting the player hands, you can see that there were some near misses where a player held 0 cards but were saved by the debt owed by their last played picture card.
+
+![Long game hands plot](evolved_long_game_hands.png)
