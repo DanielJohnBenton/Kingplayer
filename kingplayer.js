@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "play", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "genetic", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
 		players: 2, // Allows 2-52
 	},
@@ -20,7 +20,7 @@ let _config = {
 		},
 		genetic: {
 			goal: "LONGEST", // "SHORTEST", "LONGEST"
-			iterations: 2000,
+			iterations: 4000,
 			log: 1,
 			population: 2500,
 			elitism: 100,
@@ -67,6 +67,11 @@ function WriteFile(path, contents)
 	_fs.writeFileSync(path, contents, "utf8");
 }
 
+/*
+	ReadFile (
+		STRING path
+	): STRING
+*/
 function ReadFile(path)
 {
 	return _fs.readFileSync(path, "utf8").toString();
@@ -138,6 +143,11 @@ function ShuffledDeck()
 	return shuffled;
 }
 
+/*
+	LoadDeckFromFile (
+		STRING path
+	): ARRAY [INTEGER index] = OBJECT Card
+*/
 function LoadDeckFromFile(path)
 {
 	let loaded = JSON.parse(ReadFile(path)).deck;
@@ -194,7 +204,8 @@ function Players(n)
 
 /*
 	MoreThanOnePlayerHasCards (
-		ARRAY players [INTEGER index] = OBJECT Player
+		ARRAY players [INTEGER index] = OBJECT Player,
+		INTEGER owed
 	): BOOLEAN
 */
 function MoreThanOnePlayerActive(players, owed)
@@ -540,22 +551,44 @@ function Distribution()
 	console.log("Mean average: "+ (total / _config.features.distribution.iterations));
 }
 
+/*
+	OBJECT Gene (
+		ARRAY deck [INTEGER index] = OBJECT Card
+	)
+*/
 function Gene(deck)
 {
 	this.deck = deck;
 	this.placeCount = PlayOneGame(deck);
 }
 
+/*
+	SortGamesForShortest (
+		OBJECT Gene a,
+		OBJECT Gene b
+	): INTEGER
+*/
 function SortGamesForShortest(a, b)
 {
 	return a.placeCount - b.placeCount;
 }
 
+/*
+	SortGamesForLongest (
+		OBJECT Gene a,
+		OBJECT Gene b
+	): INTEGER
+*/
 function SortGamesForLongest(a, b)
 {
 	return b.placeCount - a.placeCount;
 }
 
+/*
+	SortPopulation (
+		ARRAY decks [INTEGER index] = OBJECT Gene
+	): VOID
+*/
 function SortPopulation(decks)
 {
 	decks.sort(
@@ -563,6 +596,11 @@ function SortPopulation(decks)
 	);
 }
 
+/*
+	MutateDeck (
+		ARRAY deck [INTEGER index] = OBJECT Card
+	): ARRAY deck [INTEGER index] = OBJECT Card
+*/
 function MutateDeck(deck)
 {
 	let newDeck = deck.slice();
@@ -582,6 +620,11 @@ function MutateDeck(deck)
 	return newDeck;
 }
 
+/*
+	EvolvePopulation (
+		ARRAY [INTEGER index] = OBJECT Gene
+	): ARRAY [INTEGER index] = OBJECT Gene
+*/
 function EvolvePopulation(decks)
 {
 	let newDecks = [];
@@ -603,6 +646,10 @@ function EvolvePopulation(decks)
 	return newDecks;
 }
 
+/*
+	GeneticAlgorithm (
+	): VOID
+*/
 function GeneticAlgorithm()
 {
 	let decks = [];
