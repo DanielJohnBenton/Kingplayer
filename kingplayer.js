@@ -3,19 +3,30 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "distribution", // Can be "PLAY", "DISTRIBUTION"
+	feature: "GENETIC", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
-		players: 5, // Allows 2-52
+		players: 2, // Allows 2-52
 	},
 	features: {
 		play: {
 			log: true, // TRUE to log each game event to the console
-			plotFile: "gamePlot.txt" // Leave BLANK ("") for no file write
+			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
+			deck: "" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
 			log: 10,
 			output: "distribution.txt"
+		},
+		genetic: {
+			goal: "SHORTEST", // "SHORTEST", "LONGEST"
+			iterations: 200,
+			log: 1,
+			population: 500,
+			elitism: 5,
+			selection: 50,
+			mutationRatePercentage: 2,
+			output: "evolved_deck.txt"
 		}
 	}
 };
@@ -299,10 +310,12 @@ function GamePlotToFile(plot, ids)
 		ARRAY deck [INTEGER index] = OBJECT Card
 	): INTEGER
 */
-function PlayOneGame(deck)
+function PlayOneGame(initialDeck)
 {
 	GameLog("[G] This game has "+ _config.game.players +" players.");
 	GameLog("[G] Dealing...");
+	
+	let deck = initialDeck.slice();
 	
 	let players = Players(_config.game.players);
 	let pile = [];
@@ -497,6 +510,99 @@ function Distribution()
 	console.log("Mean average: "+ (total / _config.features.distribution.iterations));
 }
 
+function Gene(deck)
+{
+	this.deck = deck;
+	this.placeCount = PlayOneGame(deck);
+}
+
+function SortGamesForShortest(a, b)
+{
+	return a.placeCount - b.placeCount;
+}
+
+function SortGamesForLongest(a, b)
+{
+	return b.placeCount - a.placeCount;
+}
+
+function SortPopulation(decks)
+{
+	decks.sort(
+		((_config.features.genetic.goal == "LONGEST") ? SortGamesForLongest : SortGamesForShortest)
+	);
+}
+
+function MutateDeck(deck)
+{
+	let newDeck = deck.slice();
+	
+	for(let i = 0, n = newDeck.length; i < n; i++)
+	{
+		if(Random(1, 100) <= _config.features.genetic.mutationRatePercentage)
+		{
+			let swapCard = Random(0, n - 1);
+			let tempCard = new Card(newDeck[i].suit, newDeck[i].type);
+			
+			newDeck[i] = new Card(newDeck[swapCard].suit, newDeck[swapCard].type);
+			newDeck[swapCard] = new Card(tempCard.suit, tempCard.type);
+		}
+	}
+	
+	return newDeck;
+}
+
+function EvolvePopulation(decks)
+{
+	let newDecks = [];
+	
+	for(let iElites = 0; iElites < _config.features.genetic.elitism; iElites++)
+	{
+		newDecks[iElites] = decks[iElites];
+	}
+	
+	let selectedDecks = decks.slice(0, _config.features.genetic.selection);
+	
+	for(let iDecks = _config.features.genetic.elitism; iDecks < _config.features.genetic.population; iDecks++)
+	{
+		newDecks[iDecks] = new Gene(MutateDeck(decks[Random(0, _config.features.genetic.selection - 1)].deck));
+	}
+	
+	SortPopulation(newDecks);
+	
+	return newDecks;
+}
+
+function GeneticAlgorithm()
+{
+	let decks = [];
+	
+	for(let i = 0; i < _config.features.genetic.population; i++)
+	{
+		decks[i] = new Gene(ShuffledDeck());
+	}
+	
+	SortPopulation(decks);
+	
+	console.log("[Initial] "+ decks[0].placeCount);
+	
+	for(let i = 1; i <= _config.features.genetic.iterations; i++)
+	{
+		decks = EvolvePopulation(decks);
+		
+		if(_config.features.genetic.output != "")
+		{
+			WriteFile(_config.features.genetic.output, JSON.stringify(decks[0]));
+		}
+		
+		if((i % _config.features.genetic.log) == 0)
+		{
+			console.log("[Generation "+ i +"] "+ decks[0].placeCount);
+		}
+	}
+}
+
+// =========================================================================================
 if(_config.feature == "PLAY")
 {
 	PlayOneGame(ShuffledDeck());
@@ -505,10 +611,15 @@ else if(_config.feature == "DISTRIBUTION")
 {
 	Distribution();
 }
+else if(_config.feature == "GENETIC")
+{
+	GeneticAlgorithm();
+}
 else
 {
 	console.log("Please configure a feature.");
 }
+// =========================================================================================
 
 
 
