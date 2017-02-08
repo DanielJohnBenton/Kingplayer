@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "GENETIC", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "PLAY", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
 		players: 2, // Allows 2-52
 	},
@@ -11,7 +11,7 @@ let _config = {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			deck: "" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
@@ -65,6 +65,11 @@ function Defined(type)
 function WriteFile(path, contents)
 {
 	_fs.writeFileSync(path, contents, "utf8");
+}
+
+function ReadFile(path)
+{
+	return _fs.readFileSync(path, "utf8").toString();
 }
 
 /*
@@ -131,6 +136,19 @@ function ShuffledDeck()
 	}
 	
 	return shuffled;
+}
+
+function LoadDeckFromFile(path)
+{
+	let loaded = JSON.parse(ReadFile(path)).deck;
+	let deck = [];
+	
+	for(let i = 0, n = loaded.length; i < n; i++)
+	{
+		deck.push(new Card(loaded[i].suit, loaded[i].type));
+	}
+	
+	return deck;
 }
 
 /*
@@ -605,7 +623,20 @@ function GeneticAlgorithm()
 // =========================================================================================
 if(_config.feature == "PLAY")
 {
-	PlayOneGame(ShuffledDeck());
+	let deck = [];
+	
+	if(_config.features.play.load != "")
+	{
+		deck = LoadDeckFromFile(_config.features.play.load);
+		GameLog("Pre-sorted deck loaded from '"+ _config.features.play.load +"'.");
+	}
+	else
+	{
+		deck = ShuffledDeck();
+		GameLog("Deck shuffled.");
+	}
+	
+	PlayOneGame(deck);
 }
 else if(_config.feature == "DISTRIBUTION")
 {
