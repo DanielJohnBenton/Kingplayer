@@ -11,7 +11,7 @@ let _config = {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			load: "longest_evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
@@ -20,12 +20,12 @@ let _config = {
 		},
 		genetic: {
 			goal: "LONGEST", // "SHORTEST", "LONGEST"
-			iterations: 200,
+			iterations: 2000,
 			log: 1,
-			population: 1000,
-			elitism: 10,
-			selection: 100,
-			mutationRatePercentage: 2,
+			population: 2500,
+			elitism: 100,
+			selection: 1000,
+			mutationRatePercentage: 5,
 			output: "evolved_deck.txt"
 		}
 	}
@@ -197,15 +197,15 @@ function Players(n)
 		ARRAY players [INTEGER index] = OBJECT Player
 	): BOOLEAN
 */
-function MoreThanOnePlayerHasCards(players)
+function MoreThanOnePlayerActive(players, owed)
 {
-	let hands = 0;
+	let active = 0;
 	
 	for(let i = 0, n = players.length; i < n; i++)
 	{
-		if(players[i].hand.length > 0)
+		if(players[i].hand.length > 0 || i == owed)
 		{
-			if(++hands == 2)
+			if(++active == 2)
 			{
 				return true;
 			}
@@ -366,9 +366,9 @@ function PlayOneGame(initialDeck)
 	
 	let placeCount = 0;
 	
-	let mustContinue = false;
+	let owed = -1;
 	
-	while(mustContinue || MoreThanOnePlayerHasCards(players))
+	while(MoreThanOnePlayerActive(players, owed))
 	{
 		let nextCard = players[playerTurn].hand.shift();
 		
@@ -385,17 +385,17 @@ function PlayOneGame(initialDeck)
 			taxesDemanded = _taxation[nextCard.type];
 			taxesPaid = 0;
 			
+			owed = playerTurn;
+			
 			for(let i = 0; i < players.length; i++)
 			{
-				if(i != playerTurn && players[i].hand.length == 0)
+				if(i != playerTurn && players[i].hand.length == 0 && i != owed)
 				{
 					GameLog("[L] Player "+ players[i].id +" is out of the game!");
 					
 					players.splice(i, 1);
 				}
 			}
-			
-			mustContinue = true;
 			
 			playerTurn = NextPlayer(players, playerTurn);
 		}
@@ -416,7 +416,7 @@ function PlayOneGame(initialDeck)
 				
 				GameLog("[T] Player "+ players[grabber].id +" grabs the pile and adds it to the bottom of theirs. Now they have "+ players[grabber].hand.length +" cards.");
 				
-				mustContinue = false;
+				owed = -1;
 				
 				playerTurn = grabber;
 			}
@@ -425,7 +425,7 @@ function PlayOneGame(initialDeck)
 			
 			for(let i = 0; i < players.length; i++)
 			{
-				if(players[i].hand.length == 0)
+				if(players[i].hand.length == 0 && i != owed)
 				{
 					GameLog("[L] Player "+ players[i].id +" is out of the game!");
 					
