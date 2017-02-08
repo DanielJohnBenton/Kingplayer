@@ -233,6 +233,55 @@ Settings used:
 |---|---|---|---|
 |500|5|50|2%|
 
+As you might have guessed, the shortest game was very one-sided.
+
+```
+Pre-sorted deck loaded from 'shortest_evolved_deck.txt'.
+[G] This game has 2 players.
+[G] Dealing...
+[P] Player 1 places King on the pile. 25 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 2 places King on the pile. 25 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 3 on the pile. 24 cards left.
+[T] Player 1 places 9 on the pile. 23 cards left.
+[T] Player 1 places 8 on the pile. 22 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 30 cards.
+[P] Player 2 places Ace on the pile. 29 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 9 on the pile. 21 cards left.
+[T] Player 1 places 10 on the pile. 20 cards left.
+[T] Player 1 places 3 on the pile. 19 cards left.
+[T] Player 1 places 7 on the pile. 18 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 34 cards.
+[P] Player 2 places King on the pile. 33 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 9 on the pile. 17 cards left.
+[T] Player 1 places 6 on the pile. 16 cards left.
+[T] Player 1 places Queen on the pile. 15 cards left. This demands a tax of 2 cards from the next player.
+[T] Player 2 places Ace on the pile. 32 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 10 on the pile. 14 cards left.
+[T] Player 1 places 4 on the pile. 13 cards left.
+[T] Player 1 places 6 on the pile. 12 cards left.
+[T] Player 1 places Jack on the pile. 11 cards left. This demands a tax of 1 cards from the next player.
+[T] Player 2 places King on the pile. 31 cards left. This demands a tax of 3 cards from the next player.
+[T] Player 1 places 3 on the pile. 10 cards left.
+[T] Player 1 places 9 on the pile. 9 cards left.
+[T] Player 1 places 7 on the pile. 8 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 44 cards.
+[P] Player 2 places Ace on the pile. 43 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 5 on the pile. 7 cards left.
+[T] Player 1 places 8 on the pile. 6 cards left.
+[T] Player 1 places 2 on the pile. 5 cards left.
+[T] Player 1 places 7 on the pile. 4 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 48 cards.
+[P] Player 2 places Ace on the pile. 47 cards left. This demands a tax of 4 cards from the next player.
+[T] Player 1 places 6 on the pile. 3 cards left.
+[T] Player 1 places 4 on the pile. 2 cards left.
+[T] Player 1 places 10 on the pile. 1 cards left.
+[T] Player 1 places 6 on the pile. 0 cards left.
+[T] Player 2 grabs the pile and adds it to the bottom of theirs. Now they have 52 cards.
+[L] Player 1 is out of the game!
+[G] Player 2 wins!
+33 cards were placed during the game.
+```
+
 ## Evolving a long game
 In a million random games between 2 players, the longest game was **2620** ([see above](https://github.com/DanielJohnBenton/Kingplayer#beers-2-players)).
 
