@@ -228,6 +228,7 @@ The genetic algorithm found games with a length of **33** within only 17,500 gam
 ![Evolving a short game](graphs/evolve_short_game.png)
 
 Settings used:
+
 |Population per generation|Elitism count|Selection count|Mutation rate|
 |---|---|---|---|
 |500|5|50|2%|
