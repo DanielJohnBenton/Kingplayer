@@ -242,6 +242,8 @@ However, with some luck and some trial and error tweaking the settings, the evol
 
 ![Evolving a long game](graphs/evolve_long_game.png)
 
+Settings used:
+
 |Population per generation|Elitism count|Selection count|Mutation rate|
 |---|---|---|---|
 |2500|100|1000|5%|
