@@ -3,15 +3,16 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "random", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "PLAY", // Can be "PLAY", "DISTRIBUTION", "GENETIC", "RANDOM"
 	game: {
 		players: 2, // Allows 2-52
+		infiniteFlag: 50000
 	},
 	features: {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			load: "shortest_evolved_deck.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
@@ -360,6 +361,8 @@ function PlayOneGame(initialDeck)
 	GameLog("[G] This game has "+ _config.game.players +" players.");
 	GameLog("[G] Dealing...");
 	
+	let checkedInfiniteGame = false;
+	
 	let deck = initialDeck.slice();
 	
 	let players = Players(_config.game.players);
@@ -401,6 +404,14 @@ function PlayOneGame(initialDeck)
 		
 		pile.unshift(nextCard);
 		placeCount++;
+		
+		if(!checkedInfiniteGame && placeCount >= _config.game.infiniteFlag)
+		{
+			WriteFile("POSSIBLE_INFINITE_GAME.txt", JSON.stringify({deck: initialDeck}));
+			console.log("POSSIBLE INFINITE GAME DETECTED!!! - SAVED DECK TO FILE");
+			
+			checkedInfiniteGame = true;
+		}
 		
 		let logLeader = ((taxesDemanded > 0) ? "[T]" : "[P]");
 		let logEnder = ((nextCard.DemandsTaxes()) ? " This demands a tax of "+ _taxation[nextCard.type] +" cards from the next player." : "");
