@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "genetic", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
+	feature: "random", // Can be "PLAY", "DISTRIBUTION", "GENETIC"
 	game: {
 		players: 2, // Allows 2-52
 	},
@@ -31,7 +31,9 @@ let _config = {
 		random: {
 			goal: "longest", // "SHORTEST", "LONGEST"
 			directory: "random/",
-			log: 10000,
+			log: 1000000,
+			minimumForLongest: 4000,
+			maximumForShortest: 34,
 			safetyFileLimit: 10000
 		}
 	}
@@ -46,6 +48,7 @@ if(_config.game.players < 2 || _config.game.players > 52)
 _config.feature = _config.feature.toUpperCase();
 
 _config.features.genetic.goal = _config.features.genetic.goal.toUpperCase();
+_config.features.random.goal = _config.features.random.goal.toUpperCase();
 
 if(_config.features.random.directory.charAt(_config.features.random.directory - 1) != "/")
 {
@@ -693,6 +696,48 @@ function GeneticAlgorithm()
 	}
 }
 
+function RandomGames()
+{
+	let cGamesPlayed = 0;
+	let cFilesCreated = 0;
+	
+	let playForLongest = (_config.features.random.goal == "LONGEST");
+	
+	let bestSoFar = (playForLongest ? _config.features.random.minimumForLongest : _config.features.random.maximumForShortest);
+	
+	console.log("Playing lots of shuffled decks to find the "+ _config.features.random.goal +" game between "+ _config.game.players +" players.");
+	console.log("Must do better than "+ bestSoFar +" before solutions will be logged/saved.");
+	console.log("A maximum of "+ _config.features.random.safetyFileLimit +" files can be created, at which point the search will halt.");
+	
+	while(cFilesCreated < _config.features.random.safetyFileLimit)
+	{
+		let deck = ShuffledDeck();
+		
+		let gameLength = PlayOneGame(deck);
+		cGamesPlayed++;
+		
+		if((cGamesPlayed % _config.features.random.log) == 0)
+		{
+			console.log("[LOG] "+ cGamesPlayed +" games have been played so far. "+ cFilesCreated +" files have been created so far.");
+		}
+		
+		if(
+		(playForLongest && gameLength > bestSoFar) ||
+		(!playForLongest && gameLength < bestSoFar))
+		{
+			console.log("[!!!] New solution discovered: "+ gameLength +". "+ cFilesCreated +" files have been created so far.");
+			
+			WriteFile(_config.features.random.directory + gameLength +".txt", JSON.stringify({deck: deck}));
+			
+			cFilesCreated++;
+			
+			bestSoFar = gameLength;
+		}
+	}
+	
+	console.log(cFilesCreated +" files created limit reached - end search.");
+}
+
 // =========================================================================================
 if(_config.feature == "PLAY")
 {
@@ -718,6 +763,10 @@ else if(_config.feature == "DISTRIBUTION")
 else if(_config.feature == "GENETIC")
 {
 	GeneticAlgorithm();
+}
+else if(_config.feature == "RANDOM")
+{
+	RandomGames();
 }
 else
 {
