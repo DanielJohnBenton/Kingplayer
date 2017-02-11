@@ -303,7 +303,7 @@ Plotting the player hands, you can see that there were some near misses where a 
 
 ![Long game hands plot](graphs/evolved_long_game_hands.png)
 
-# :spades: Quest for a world record
+# :diamonds: Quest for a world record
 
 I am still trying to find higher game lengths, but it turns out to be very difficult! The world record is 7959 - and the highest I have seen is 4729! I have simulated many millions of games and tried various search tactics.
 
