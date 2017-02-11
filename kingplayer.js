@@ -3,7 +3,7 @@
 let _fs = require("fs");
 
 let _config = {
-	feature: "PLAY", // Can be "PLAY", "DISTRIBUTION", "GENETIC", "RANDOM"
+	feature: "random", // Can be "PLAY", "DISTRIBUTION", "GENETIC", "RANDOM"
 	game: {
 		players: 2, // Allows 2-52
 		infiniteFlag: 50000
@@ -12,7 +12,7 @@ let _config = {
 		play: {
 			log: true, // TRUE to log each game event to the console
 			plotFile: "gamePlot.txt", // Leave BLANK ("") for no file write
-			load: "" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
+			load: "random/4084.txt" // Load deck from a file instead of shuffling a new deck - leave BLANK ("") to use shuffled deck
 		},
 		distribution: {
 			iterations: 100,
@@ -707,6 +707,10 @@ function GeneticAlgorithm()
 	}
 }
 
+/*
+	RandomGames (
+	): VOID
+*/
 function RandomGames()
 {
 	let cGamesPlayed = 0;
@@ -736,11 +740,9 @@ function RandomGames()
 		(playForLongest && gameLength > bestSoFar) ||
 		(!playForLongest && gameLength < bestSoFar))
 		{
-			console.log("[!!!] New solution discovered: "+ gameLength +". "+ cFilesCreated +" files have been created so far.");
-			
 			WriteFile(_config.features.random.directory + gameLength +".txt", JSON.stringify({deck: deck}));
 			
-			cFilesCreated++;
+			console.log("[!!!] New solution discovered: "+ gameLength +". "+ (++cFilesCreated) +" files have been created so far.");
 			
 			bestSoFar = gameLength;
 		}
