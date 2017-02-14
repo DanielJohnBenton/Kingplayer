@@ -171,8 +171,8 @@ void Permutations()
 {
 	// configurations:
 	const unsigned short safetyFileLimit = 10000;
-	const unsigned long log = 1000000;
-	const unsigned long save = 1000000;
+	const unsigned long log = 10000000;
+	const unsigned long save = 10000000;
 	const string directory = "permutations/";
 	
 	unsigned long long cGamesPlayed = 0;
@@ -187,39 +187,67 @@ void Permutations()
 	
 	cout <<"Permutations starting at:"<< endl << deck << endl;
 	
+	bool playing = false;
+	
+	long long i = 0;
+	
 	while(next_permutation(deck.begin(), deck.end()) && cFilesCreated < safetyFileLimit)
 	{
-		unsigned int gameLength = PlayOneGame(deck);
-		
-		cGamesPlayed++;
-		
-		if(cGamesPlayed % log == 0)
+		if(playing)
 		{
-			cout <<"[LOG] "<< cGamesPlayed <<" games played. "<< cFilesCreated <<" files created."<< endl;
+			unsigned int gameLength = PlayOneGame(deck);
+			
+			cGamesPlayed++;
+			
+			if(cGamesPlayed % log == 0)
+			{
+				cout <<"[LOG] "<< cGamesPlayed <<" games played. "<< cFilesCreated <<" files created."<< endl;
+			}
+			
+			if(cGamesPlayed % save == 0)
+			{
+				cout <<"[LOG] Saving deck to file: "<< deck << endl;
+				
+				ofstream file;
+				file.open("permutations/start.txt");
+				file << deck;
+				file.close();
+			}
+			
+			if(gameLength > bestSoFar)
+			{
+				string fileName = directory + patch::to_string(gameLength) +".txt";
+				
+				ofstream file;
+				file.open(fileName.c_str());
+				file << deck;
+				file.close();
+				
+				cout <<"[!!!] New solution discovered: "<< gameLength <<". "<< ++cFilesCreated <<" files created."<< endl;
+				
+				bestSoFar = gameLength;
+			}
 		}
-		
-		if(cGamesPlayed % save == 0)
+		else
 		{
-			cout <<"[LOG] Saving deck to file: "<< deck << endl;
+			i++;
 			
-			ofstream file;
-			file.open("permutations/start.txt");
-			file << deck;
-			file.close();
-		}
-		
-		if(gameLength > bestSoFar)
-		{
-			string fileName = directory + patch::to_string(gameLength) +".txt";
-			
-			ofstream file;
-			file.open(fileName.c_str());
-			file << deck;
-			file.close();
-			
-			cout <<"[!!!] New solution discovered: "<< gameLength <<". "<< ++cFilesCreated <<" files created."<< endl;
-			
-			bestSoFar = gameLength;
+			if(i % 100000000 == 0)
+			{
+				cout <<"Saved ["<< i <<"] "<< deck << endl;
+				
+				ofstream file;
+				file.open("permutations/start.txt");
+				file << deck;
+				file.close();
+			}
+				
+			if(deck.at(26) == 'A' || deck.at(26) == 'K' || deck.at(26) == 'Q' || deck.at(26) == 'J')
+			{
+				playing = true;
+				
+				cout <<"Simulations begin."<< endl;
+			}
 		}
 	}
 }
