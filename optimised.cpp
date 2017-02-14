@@ -134,7 +134,7 @@ void RandomGames()
 	unsigned long long cGamesPlayed = 0;
 	unsigned short cFilesCreated = 0;
 	
-	unsigned int bestSoFar = 3000;
+	unsigned int bestSoFar = 4000;
 	
 	cout <<"Playing lots of shuffled decks to find the LONGEST game between 2 players."<< endl;
 	cout <<"Must do better than "<< bestSoFar <<" before solutions will be logged/saved."<< endl;
@@ -167,11 +167,68 @@ void RandomGames()
 	}
 }
 
+void Permutations()
+{
+	// configurations:
+	const unsigned short safetyFileLimit = 10000;
+	const unsigned long log = 1000000;
+	const unsigned long save = 1000000;
+	const string directory = "permutations/";
+	
+	unsigned long long cGamesPlayed = 0;
+	unsigned short cFilesCreated = 0;
+	
+	unsigned int bestSoFar = 2000;
+	
+	ifstream startFile("permutations/start.txt");
+	string deck = "";
+	getline(startFile, deck);
+	startFile.close();
+	
+	cout <<"Permutations starting at:"<< endl << deck << endl;
+	
+	while(next_permutation(deck.begin(), deck.end()) && cFilesCreated < safetyFileLimit)
+	{
+		unsigned int gameLength = PlayOneGame(deck);
+		
+		cGamesPlayed++;
+		
+		if(cGamesPlayed % log == 0)
+		{
+			cout <<"[LOG] "<< cGamesPlayed <<" games played. "<< cFilesCreated <<" files created."<< endl;
+		}
+		
+		if(cGamesPlayed % save == 0)
+		{
+			cout <<"[LOG] Saving deck to file: "<< deck << endl;
+			
+			ofstream file;
+			file.open("permutations/start.txt");
+			file << deck;
+			file.close();
+		}
+		
+		if(gameLength > bestSoFar)
+		{
+			string fileName = directory + patch::to_string(gameLength) +".txt";
+			
+			ofstream file;
+			file.open(fileName.c_str());
+			file << deck;
+			file.close();
+			
+			cout <<"[!!!] New solution discovered: "<< gameLength <<". "<< ++cFilesCreated <<" files created."<< endl;
+			
+			bestSoFar = gameLength;
+		}
+	}
+}
+
 int main()
 {
 	srand(time(0));
 	
-	RandomGames();
+	Permutations();
 	
 	return 0;
 }
