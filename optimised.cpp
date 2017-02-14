@@ -242,7 +242,7 @@ void Permutations()
 				file.close();
 			}
 				
-			if(deck.at(26) == 'A' || deck.at(26) == 'K' || deck.at(26) == 'Q' || deck.at(26) == 'J')
+			if(deck.at(25) == 'A' || deck.at(25) == 'K' || deck.at(25) == 'Q' || deck.at(25) == 'J')
 			{
 				playing = true;
 				
